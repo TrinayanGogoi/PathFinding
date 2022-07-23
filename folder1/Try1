@@ -1,0 +1,115 @@
+. means elemant wise
+without . means array wise
+A=1 2   B=1 2
+  3 4     3 4
+A*B=7  10  A.*B=1 4
+    15 22       9 16
+--------------------------------
+//Polymonial in steps of 0.5
+x=-2:0.5:2;
+y=x.^4+x.^2-1;
+plot(x,y)
+||
+x=-2:0.5:2;
+c=[1 0 1 0 -1]
+y=polyval(c,x)
+
+////Giving -1 and 1 showing 50 steps y=x^2+1
+x=linspace(-1,1,50)
+c=[1 0 1]
+y=polyval(c,x)
+plot(x,y)
+||
+x=linspace(-1,1,50)
+y=x.^2+1;
+plot(x,y)
+
+//
+x=-3:0.5:3;
+y=((x+2).^2).*(x.^3+1);
+plot(x,y)
+
+//x=3:0.01:5;
+y=(1./(x.^3)) + (1./(x.^2)) +3./x
+plot(x,y)
+
+----------------------------
+//Using Script
+filename=try2
+function[output]=try2(input)
+output=input.^2
+
+//
+function[sq,cub]=try3(input)
+sq=input.^2
+cub=input.^3
+
+//
+function[out1,out2]=try3(in1,in2,in3)
+out1=max(in2,in3)
+out2=min(in1,in3)
+
+------------------------
+//factorial 0f 5 using loop
+f=1;
+for i=1:5;
+    f=f*i;
+end
+disp(f)
+
+//EVALUATE polynomial in steps of 0.1
+x=0:0.1:3;
+y=x./(x.^2+1);
+plot(x,y)
+
+//USE LABEL AND TITLE COMMAND with COLOR
+x=1:0.1:2;
+y=x.^3+3.*x.^2+1;
+plot(x,y,'red')
+xlabel('x-axis')
+ylabel('y-axis')
+title('Graph of the function')
+
+//EXPRESSION nCm
+n=3;
+m=2;
+prod=1;
+mfact=1;
+for i=0:(m-1)
+    mfact=mfact.*(i+1);
+    prod=prod.*(n-i);
+end
+sol=prod./mfact;
+disp(sol)
+
+//QUADRATIC Formula 
+function[]=try3(a,b,c)
+discr=b.*b-4.*a.*c;
+if discr<0
+     disp('Imaginary')
+elseif discr==0
+     disp('Real and Equal')
+else
+     disp('Real and Distinct')
+end
+
+//Conditional Statement
+function[]=try3(x)
+if x<0
+    sol=0;
+elseif x>0&x<=1
+    sol=x;
+elseif x>1&x<=2
+    sol=2-x;
+else
+    sol=0;
+end
+disp(sol)
+
+//2^n till 6
+function[]=try3(n)
+sum=0;
+for i=1:n
+    sum=sum+2.^i;
+end
+disp(sum)
